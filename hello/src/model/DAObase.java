@@ -26,7 +26,13 @@ public class DAObase implements DAO{
 	}
 	
 	public void closeDBResources(ResultSet rs, Statement stmt, Connection conn) {
-		
+		if(rs != null) {
+			try {
+				rs.close();
+			} catch(Exception e) {
+				e.getStackTrace();
+			}
+		}
 	}
 	
 	public void closeDBResources(ResultSet rs, PreparedStatement pstmt, Connection conn) {
