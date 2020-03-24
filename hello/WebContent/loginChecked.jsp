@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LOGIN CHECKING</title>
 <style>
 
 	.wrap {
@@ -50,33 +50,32 @@
 		DAObase dao = new DAObase();
 		Connection conn = dao.getConnection();
 		
-		PreparedStatement pstmt = conn.prepareStatement("SELECT num, id, passwd FROM login where id = ?");
+		// statement와 prestatement 의 차이는 후자는 쿼리문에 변수를 넣을 수 있음
+		// 쿼리문을 따로 String 인스턴스로 만들어 두고 사용하는 경우
+		String sql = "SELECT num, id, passwd FROM login where id = ?";
+		PreparedStatement pstmt = conn.prepareStatement(sql);
 		pstmt.setString(1, request.getParameter("inputid"));
-		//pstmt.setInt(2, 30);
 		ResultSet rs = pstmt.executeQuery();
 		
 		String inputId = request.getParameter("inputid");
 		String inputpw = request.getParameter("inputpasswd");
-			
+		
 		if(rs.next()) {
 			String id = rs.getString("id");
 			String passwd = rs.getString("passwd");
+			if(inputId.equals(id)) {
 %>
 	<div>
-		<p><%= id %></p>
-		<p><%= passwd %></p>
-	</div>		
-			
-<%			
+		<h3>동일한 ID 존재합니다.</h3>
+	</div>			
+<%
+			}
 		}
 %>
 	<div>
-		<p>입력한<%= inputId %></p>
-		<p>입력한<%= inputpw %></p>
+		<p>입력하신 ID : <%= inputId %></p>
 	</div>
-	
 <%		
-					
 	}catch (Exception e){
 		e.printStackTrace();
 	}

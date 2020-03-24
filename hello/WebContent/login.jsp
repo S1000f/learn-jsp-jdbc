@@ -4,24 +4,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>LOG IN</title>
+
+<style>
+	.wrap {
+		position: relative;
+		width: 1024px;
+		height: 500px;
+	}
+
+	.form-container {
+		position: absolute;
+		width: 400px;
+		margin: 0 auto;
+	
+	}
+
+</style>
 </head>
 <body>
-	<form action="loginChecked.jsp" method="get">
-		<div>
-			<p>ID:</p> 
-			<input type="text" name="inputid" class="inputid" />
+	<div class="wrap">
+		<div class="form-container">
+			<form action="loginChecked.jsp" method="post">
+				<div>
+					<p>ID:</p> 
+					<input type="text" name="inputid" class="inputid" />
+				</div>
+				<div>
+					<p>password:</p>
+					<input type="text" name="inputpasswd" class="inputpasswd" />
+					<input type="submit" value="Log in" />
+				</div>
+				<br />
+				<div>
+					<button type="button" onclick="location.href='insertMember.jsp'">회원가입</button>
+				</div>
+			</form>
 		</div>
-		<div>
-			<p>password:</p>
-			<input type="text" name="inputpasswd" class="inputpasswd" />
-			<input type="submit" value="확인" />
-		</div>
-		<br />
-		<div>
-			<button type="button" onclick="location.href='insertMember.jsp'">회원가입</button>
-		</div>
-	</form>
-	
+	</div>
 </body>
 </html>
