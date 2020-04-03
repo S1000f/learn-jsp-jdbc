@@ -19,7 +19,8 @@
 	String str = "";
 	
 	
-	try {
+	try
+	{
 		String jdbc_driver = "oracle.jdbc.OracleDriver";
 		String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
 		
@@ -43,6 +44,7 @@
 				if(result == 1 ) {
 					str = id + ", update success";
 				}
+				
 			}
 		}
 		
@@ -59,7 +61,7 @@
 		
 		if(conn != null) {
 			try {
-				pstmt.close();
+				conn.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

@@ -11,7 +11,7 @@
 	<form action="insertTestPro.jsp" method="post">
 		id: <input type="text" name="id" id="id" maxlength="50"><br />
 		password: <input type="password" name="password" id="password" maxlength="16"><br />
-		name: <input type="text" name="name" id="name" maxlength="10"><br />
+		name : <input type="text" name="name" id="name" maxlength="10"><br />
 		<input type="submit" value="sign up" />
 	</form>
 </body>

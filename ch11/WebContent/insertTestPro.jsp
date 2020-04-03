@@ -49,7 +49,7 @@
 		
 		if(conn != null) {
 			try {
-				pstmt.close();
+				conn.close();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
